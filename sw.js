@@ -26,12 +26,16 @@ self.addEventListener('activate', (evt) => {
   // CODELAB: Remove previous cached data from disk.
     evt.waitUntil(
       caches.keys().then((keyList) => {
+		  try {
         return Promise.all(keyList.map((key) => {
           if (key !== CACHE_NAME) {
             console.log('[ServiceWorker] Removing old cache', key);
             return caches.delete(key);
           }
         }));
+		  } catch(error) {
+			console.error(error);
+		  }
       })
   );
   self.clients.claim();
