@@ -10,7 +10,6 @@ const FILES_TO_CACHE = [
 console.log("ALA KOTA MA");
 
 self.addEventListener('install', (evt) => {
-	debugger;
   console.log('[ServiceWorker] Install');
   // CODELAB: Precache static resources here.
     evt.waitUntil(
@@ -23,7 +22,6 @@ self.addEventListener('install', (evt) => {
 });
 
 self.addEventListener('activate', (evt) => {
-	debugger;
   console.log('[ServiceWorker] Activate');
   // CODELAB: Remove previous cached data from disk.
     evt.waitUntil(
@@ -40,7 +38,6 @@ self.addEventListener('activate', (evt) => {
 });
 
 self.addEventListener('fetch', (evt) => {
-	debugger;
   console.log('[ServiceWorker] Fetch', evt.request.url);
   // CODELAB: Add fetch event handler here.
   if (evt.request.mode !== 'navigate') {
