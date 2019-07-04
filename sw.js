@@ -20,25 +20,8 @@ self.addEventListener('install', (evt) => {
   self.skipWaiting();
 });
 
-self.addEventListener('activate', (evt) => {
-	debugger
-  console.log('[ServiceWorker] Activate');
-  // CODELAB: Remove previous cached data from disk.
-    evt.waitUntil(
-      caches.keys().then((keyList) => {
-		  try {
-        return Promise.all(keyList.map((key) => {
-          if (key !== CACHE_NAME) {
-            console.log('[ServiceWorker] Removing old cache', key);
-            return caches.delete(key);
-          }
-        }));
-		  } catch(error) {
-			console.error(error);
-		  }
-      })
-  );
-  self.clients.claim();
+self.addEventListener('activate', event => {
+ event.waitUntil(self.clients.claim());
 });
 
 self.addEventListener('fetch', (evt) => {
