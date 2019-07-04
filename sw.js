@@ -3,7 +3,7 @@ const CACHE_NAME = 'static-cache-v1';
 
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
-  'simple.html',
+  '/react02/simple.html',
 ];
 console.log("ALA KOTA MA");
 
